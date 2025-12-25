@@ -11,7 +11,7 @@ export default function Home() {
   const work = useReveal();
   const contact = useReveal();
 
-  // Mouse parallax (subtle)
+  // Mouse parallax (returns number)
   const parallax = useParallax(40);
 
   return (
@@ -26,19 +26,19 @@ export default function Home() {
           {/* Parallax AI Glows */}
           <div className="absolute inset-0 -z-10">
             <div
-              style={{ transform: `translate(${parallax.x}px, ${parallax.y}px)` }}
+              style={{ transform: `translateY(${parallax}px)` }}
               className="absolute top-[-300px] left-1/2 h-[700px] w-[700px]
               -translate-x-1/2 rounded-full bg-sky-500/30 blur-[160px]
               animate-pulseSlow"
             />
             <div
-              style={{ transform: `translate(${-parallax.x}px, ${-parallax.y}px)` }}
+              style={{ transform: `translateY(${-parallax}px)` }}
               className="absolute bottom-[-250px] right-[-200px] h-[600px] w-[600px]
               rounded-full bg-purple-500/25 blur-[160px]
               animate-pulseSlower"
             />
             <div
-              style={{ transform: `translate(${parallax.y}px, ${-parallax.x}px)` }}
+              style={{ transform: `translateY(${parallax * 0.6}px)` }}
               className="absolute bottom-[-200px] left-[-200px] h-[500px] w-[500px]
               rounded-full bg-cyan-400/20 blur-[140px]
               animate-pulseSlow"
@@ -201,7 +201,6 @@ export default function Home() {
           </div>
 
           <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 Let’s Build Something
@@ -219,7 +218,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* ✅ Contact Form Component */}
             <ContactForm />
           </div>
         </section>
